@@ -23,18 +23,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: digger run
-        uses: diggerhq/digger-ee@vee-drift-as-issues
+        uses: diggerhq/digger@vLatest
         with:
+          ee: 'true'
           setup-aws: true
           setup-terragrunt: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
           disable-locking: true
-          digger-hostname: 'https://cloud.digger.dev'
-          digger-organisation: 'digger-playground'
-          digger-token: ${{ secrets.DIGGER_TOKEN }}
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DIGGER_MANAGEMENT_REPO: "https://github.com/diggerhq/mgmt-repo-one"
+          DIGGER_LICENSE_KEY: ${{ secrets.DIGGER_LICENSE_KEY }
