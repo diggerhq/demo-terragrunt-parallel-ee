@@ -3,12 +3,7 @@ name: Digger Action
 on:
   workflow_dispatch:
     inputs:
-      id:
-        description: 'run identifier'
-        required: false
-      job:
-        required: true
-      comment_id:
+      spec:
         required: true
       run_name:
         required: false
